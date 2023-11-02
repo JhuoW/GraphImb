@@ -1,0 +1,25 @@
+{
+    "gpu": {
+        "use": true,
+        "id": 0
+    },
+    "model":"UNFD",
+    "dataset": "yelp",
+    "dataset_folder": "/ssd1/weizhuo/FDdatasets/" , 
+    "params": {
+        "seed": 1234,
+        "epochs": 300,
+        "batch_size": 512,
+        "lr": 0.01,
+        "weight_decay": 0.0,
+        "add_selp_loop": false,
+        "monitor": "auc_gnn",
+        "train_size": 0.4,
+        "val_size": 0.2,
+        "norm_feat": true,
+        "homo": false,
+        "dropout": 0.0, 
+        "hid_dim": 48,
+        "n_layer": 1
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "gpu": {
+        "use": true,
+        "id": 0
+    },
+    "model":"mlp",
+    "dataset": "yelp",
+    "dataset_folder": "/ssd1/weizhuo/FDdatasets/", 
+    "params": {
+        "act": "relu",
+        "add_self_loop": false,
+        "batch_size": 1024,
+        "bias": false, 
+        "dropout": 0.5, 
+        "epochs": 500,
+        "gn": false,
+        "hid_dim": 128,
+        "homo": false,
+        "lr": 0.01,
+        "lr_scheduler": false,
+        "lr_schedule_patience": 30,
+        "monitor": "auc_gnn",
+        "multirun": 1,
+        "n_layer": 2,
+        "norm_feat": true,
+        "patience": 200,
+        "resi": 0.2, 
+        "sampled_neighbors": [0,0,0],
+        "seed": 1234,
+        "tail_act": false,
+        "train_size": 0.4,
+        "val_size": 0.2,
+        "weight_decay": 0.0
+    }
+}
