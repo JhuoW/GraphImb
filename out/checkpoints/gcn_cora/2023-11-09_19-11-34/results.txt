@@ -1,0 +1,9 @@
+train_acc: avg / std = 1.0000 / 0.0000
+train_f1: avg / std = 1.0000 / 0.0000
+train_bacc: avg / std = 1.0000 / 0.0000
+val_acc: avg / std = 0.6616 / 0.0161
+val_f1: avg / std = 0.5661 / 0.0149
+val_bacc: avg / std = 0.6075 / 0.0136
+test_acc: avg / std = 0.6690 / 0.0150
+test_f1: avg / std = 0.5915 / 0.0237
+test_bacc: avg / std = 0.6115 / 0.0179

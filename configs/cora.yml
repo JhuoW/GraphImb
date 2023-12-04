@@ -1,0 +1,185 @@
+gcn:
+  act: relu
+  add_self_loop: false
+  backbone: gcn   # 'gat', 'sage', 'gcn'
+  batch_size: 1024
+  bias: false
+  dropout: 0.5
+  epochs: 1000
+  gat:
+    num_heads: 2
+  gn: false
+  gpu:
+    use: true
+    id: 0
+  hid_dim: 64
+  homo: false
+  imb_ratio: 10
+  in_feat_dropout: 0.
+  layer_mlp: false
+  lr: 0.01
+  lr_scheduler: false
+  lr_schedule_patience: 30
+  monitor: f1
+  multirun: 5
+  n_layer: 2
+  norm_feat: true
+  patience: 200
+  proj: true
+  resi: 0.2
+  residual: false
+  sage:
+    agg: mean
+  sampled_neighbors: [0,0,0]
+  seed: 1234
+  tail_act: false
+  train_size: 0.4
+  val_size: 0.2
+  weight_decay: 0.00005  
+
+
+sage:
+  act: relu
+  add_self_loop: false
+  backbone: sage   # 'gat', 'sage', 'gcn'
+  batch_size: 1024
+  bias: false
+  dropout: 0.5
+  epochs: 1000
+  gat:
+    num_heads: 2
+  gn: false
+  gpu:
+    use: true
+    id: 0
+  hid_dim: 128
+  imb_ratio: 10
+  in_feat_dropout: 0.
+  layer_mlp: false
+  lr: 0.005
+  lr_scheduler: false
+  lr_schedule_patience: 30
+  monitor: f1
+  multirun: 5
+  n_layer: 3
+  norm_feat: true
+  patience: 200
+  proj: false
+  resi: 0.2
+  residual: false
+  sage:
+    agg: mean
+  sampled_neighbors: [0,0,0]
+  seed: 1234
+  tail_act: false
+  train_size: 0.4
+  val_size: 0.2
+  weight_decay: 0.0000  
+
+
+graphimb:
+  act: relu
+  add_self_loop: false
+  backbone: gcn   # 'gat', 'sage', 'gcn'
+  batch_size: 1024
+  bias: false
+  contrast_reg: 0.5
+  dropout: 0.5
+  epochs: 1000
+  gat:
+    num_heads: 2
+  gn: false
+  gpu:
+    use: true
+    id: 0
+  hid_dim: 64
+  homo: false
+  imb_ratio: 10
+  in_feat_dropout: 0.
+  layer_mlp: false
+  lr: 0.01
+  lr_scheduler: false
+  lr_schedule_patience: 30
+  monitor: f1
+  multirun: 5
+  n_layer: 2
+  norm_feat: true
+  patience: 200
+  private_space:
+    n_layers: 2
+    hid_dim: 64
+  proj: true
+  resi: 0.2
+  residual: false
+  sage:
+    agg: mean
+  sampled_neighbors: [0,0,0]
+  seed: 1234
+  tail_act: false
+  train_size: 0.4
+  val_size: 0.2
+  weight_decay: 0.00005
+
+supcon:
+  act: relu
+  add_self_loop: true
+  backbone: gat   # 'gat', 'sage', 'gcn'
+  balance: True
+  base_temperature: 0.07
+  batch_size: 32
+  bias: false
+  classifier_epochs: 10000 
+  contrast_mode: 'all'  # 'all', 'one'
+  contrast_reg: 0.5
+  dropout: 0.5
+  epochs: 300
+  fix_dataset: false
+  monitor: acc
+  multirun: 1
+  norm_feat: True
+  n_layer: 2
+  gat:
+    num_heads: 8
+    act: 'elu'
+    tail_act: 'elu'
+    feat_drop: 0.5
+    attn_drop: 0.5
+  gcn:
+    act: 'relu'
+    tail_act: 'relu'
+  gn: false
+  gpu:
+    use: true
+    id: 0
+  head: 'mlp'   # 'linear', 'mlp'
+  hid_dim: 64
+  imb_ratio: 10
+  lr: 0.01
+  sage:
+    agg: mean
+    act: relu
+    feat_drop: 0.5
+    tail_act: relu
+  lr_scheduler: True
+  patience: 1000
+  temperature: 0.07
+  weight_decay: 0.0001
+
+
+grace:
+  act: relu
+  balance: true
+  dropout: 0.5
+  dropout_e1: 0.2
+  dropout_e2: 0.4
+  dropout_f1: 0.3
+  dropout_f2: 0.4
+  epochs: 200
+  hid_dim: 128
+  lr: 0.0005
+  n_layer: 2
+  out_dim: 128
+  lr_scheduler: false
+  temperature: 0.4
+  weight_decay: 0.00001
+  

@@ -1,0 +1,6 @@
+val_acc: avg / std = 0.6600 / nan
+val_f1: avg / std = 0.5934 / nan
+val_bacc: avg / std = 0.6067 / nan
+test_acc: avg / std = 0.6600 / nan
+test_f1: avg / std = 0.5922 / nan
+test_bacc: avg / std = 0.5956 / nan

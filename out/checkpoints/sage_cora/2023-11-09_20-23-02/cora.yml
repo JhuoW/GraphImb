@@ -1,0 +1,47 @@
+act: relu
+add_self_loop: false
+backbone: sage
+batch_size: 1024
+bias: false
+ckpt_dir: out/checkpoints/sage_cora/2023-11-09_20-23-02
+dataset: cora
+datetime: 2023-11-09_20-23-02
+device: !!python/object/apply:torch.device
+- cuda
+dropout: 0.5
+epochs: 1000
+gat:
+  num_heads: 2
+gn: false
+gpu:
+  id: 1
+  use: true
+gpu_id: 1
+hid_dim: 128
+imb_ratio: 10
+in_feat_dropout: 0.0
+layer_mlp: false
+lr: 0.005
+lr_schedule_patience: 30
+lr_scheduler: false
+model: sage
+monitor: f1
+multirun: 5
+n_layer: 3
+norm_feat: true
+patience: 200
+proj: false
+resi: 0.2
+residual: false
+root_ckpt_dir: out/checkpoints/sage_cora
+sage:
+  agg: mean
+sampled_neighbors:
+- 0
+- 0
+- 0
+seed: 1234
+tail_act: false
+train_size: 0.4
+val_size: 0.2
+weight_decay: 0.0

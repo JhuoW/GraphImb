@@ -179,3 +179,39 @@ def print_config(config):
         keystr = "{}".format(key) + (" " * (24 - len(key)))
         print("{} -->   {}".format(keystr, val))
     print("**************** MODEL CONFIGURATION ****************")
+
+
+def cls_spec_avg_feats(data, datasetHelper: DataHelper):
+    cls_spec_avg_feats = []
+    n_cls = datasetHelper.num_cls
+    labels                = data.ndata['label']
+    data_train_mask       = data.ndata['imb_train_mask']
+    train_labels          = labels[data_train_mask]
+    train_feats           = data.ndata['feat'][data_train_mask]
+    for i in range(n_cls): 
+        cls_mask      = (train_labels == i)
+        cls_feats     = train_feats[cls_mask]  # all training node features with cls i
+        avg_cls_feats = torch.mean(cls_feats, dim = 0)
+        cls_spec_avg_feats.append(avg_cls_feats)
+    cls_avg_feats = torch.stack(cls_spec_avg_feats)
+    return cls_avg_feats
+
+
+def get_idx_info(data, datasetHelper: DataHelper):
+    """
+    存放每个cls的训练集节点
+    """
+    label = data.ndata['label']
+    index_list = torch.arange(len(label))
+    idx_info = []
+    train_cls_mask_list = []
+    for i in range(datasetHelper.num_cls):
+        train_cls_mask = torch.zeros(datasetHelper.num_nodes, dtype=bool)
+
+        cls_indices = index_list[((label == i) & data.ndata['imb_train_mask'])]
+        idx_info.append(cls_indices)
+        train_cls_mask[cls_indices] = True
+        train_cls_mask_list.append(train_cls_mask)
+
+    train_cls_masks = torch.stack(train_cls_mask_list, dim=0)  # (7, 2708)
+    return idx_info, train_cls_masks

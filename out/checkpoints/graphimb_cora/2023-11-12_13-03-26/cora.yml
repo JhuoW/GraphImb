@@ -1,0 +1,53 @@
+act: relu
+add_self_loop: false
+backbone: gcn
+batch_size: 1024
+bias: false
+ckpt_dir: out/checkpoints/graphimb_cora/2023-11-12_13-03-26
+contrast_reg: 0.5
+dataset: cora
+datetime: 2023-11-12_13-03-26
+device: !!python/object/apply:torch.device
+- cuda
+dropout: 0.5
+epochs: 1000
+gat:
+  num_heads: 2
+gn: false
+gpu:
+  id: 1
+  use: true
+gpu_id: 1
+hid_dim: 64
+homo: false
+imb_ratio: 10
+in_feat_dropout: 0.0
+layer_mlp: false
+lr: 0.01
+lr_schedule_patience: 30
+lr_scheduler: false
+model: graphimb
+monitor: f1
+multirun: 5
+n_layer: 2
+norm_feat: true
+num_cls: 7
+patience: 200
+private_space:
+  hid_dim: 64
+  n_layers: 2
+proj: true
+resi: 0.2
+residual: false
+root_ckpt_dir: out/checkpoints/graphimb_cora
+sage:
+  agg: mean
+sampled_neighbors:
+- 0
+- 0
+- 0
+seed: 1234
+tail_act: false
+train_size: 0.4
+val_size: 0.2
+weight_decay: 5.0e-05
