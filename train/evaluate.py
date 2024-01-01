@@ -137,6 +137,8 @@ def evaluate_supcon(config, data, model, classifier, device):
             y_true = labels[mask].cpu().numpy()
             f1 = f1_score(y_true, pred, average='macro')
             acc = metrics.accuracy_score(y_true, pred)
+            # print(y_true.shape)
+            # print(pred.shape)
             bacc = balanced_accuracy_score(y_true, pred)
             accs.append(acc)
             baccs.append(bacc)

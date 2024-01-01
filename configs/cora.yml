@@ -136,7 +136,7 @@ supcon:
   fix_dataset: false
   monitor: acc
   multirun: 1
-  norm_feat: True
+  norm_feat: False
   n_layer: 2
   gat:
     num_heads: 8
@@ -177,6 +177,7 @@ grace:
   epochs: 200
   hid_dim: 128
   lr: 0.0005
+  norm_feat: false
   n_layer: 2
   out_dim: 128
   lr_scheduler: false
